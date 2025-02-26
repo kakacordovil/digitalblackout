@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Apagão Digital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white flex flex-col items-center justify-center min-h-screen px-6">
+
+    <!-- Botão de troca de idioma -->
+    <div class="absolute top-4 right-4">
+        <button id="toggleLanguage" class="bg-gray-700 px-4 py-2 rounded text-white hover:bg-gray-500 transition">
+            🌎 English
+        </button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-red-500" id="title">📴 Apagão Digital - Detalhes</h1>
+        <p class="text-xl md:text-2xl mt-2 text-gray-300" id="subtitle">O impacto financeiro de um dia sem redes sociais</p>
+    </header>
+
+    <!-- Seção de valores e impacto -->
+    <section class="mt-6 text-center max-w-2xl">
+        <p class="text-lg md:text-xl text-gray-400" id="description">
+            Um apagão digital de **24 horas** pode gerar uma perda de **mais de $375 milhões** para as redes sociais, além de bilhões de impactos indiretos na economia digital.
+        </p>
+        <ul class="mt-4 text-left text-gray-300" id="impact-list">
+            <li>🔹 <strong>Meta (Facebook, Instagram, WhatsApp)</strong>: $367 milhões em perdas diárias</li>
+            <li>🔹 <strong>X (Twitter)</strong>: $8,2 milhões em perdas diárias</li>
+            <li>🔹 <strong>Impacto na bolsa de valores</strong>: queda no valor de mercado das empresas</li>
+            <li>🔹 <strong>Empresas e influenciadores</strong>: bilhões perdidos em publicidade e tráfego</li>
+        </ul>
+    </section>
+
+    <!-- Botão de Voltar -->
+    <a href="index.html" id="back-button" class="mt-6 bg-indigo-500 hover:bg-indigo-100 text-white px-6 py-3 rounded-lg text-lg font-bold shadow-lg transition">
+        🔙 Voltar à Página Inicial
+    </a>
+
+    <script>
+        // Traduções para PT e EN
+        const translations = {
+            pt: {
+                title: "📴 Apagão Digital - Detalhes",
+                subtitle: "O impacto financeiro de um dia sem redes sociais",
+                description: "Um apagão digital de **24 horas** pode gerar uma perda de <b>mais de $375 milhões</b> para as redes sociais, além de bilhões de impactos indiretos na economia digital.",
+                impactList: [
+                    "🔹 <strong>Meta (Facebook, Instagram, WhatsApp)</strong>: $367 milhões em perdas diárias",
+                    "🔹 <strong>X (Twitter)</strong>: $8,2 milhões em perdas diárias",
+                    "🔹 <strong>Impacto na bolsa de valores</strong>: queda no valor de mercado das empresas",
+                    "🔹 <strong>Empresas e influenciadores</strong>: bilhões perdidos em publicidade e tráfego"
+                ],
+                backButton: "🔙 Voltar à Página Inicial",
+                button: "🌎 English"
+            },
+            en: {
+                title: "📴 Digital Blackout - Details",
+                subtitle: "The financial impact of a day without social media",
+                description: "A <b>24-hour digital blackout</b> could cause a loss of <b>over $375 million</b> for social media companies, plus billions in indirect losses in the digital economy.",
+                impactList: [
+                    "🔹 <strong>Meta (Facebook, Instagram, WhatsApp)</strong>: $367 million in daily losses",
+                    "🔹 <strong>X (Twitter)</strong>: $8.2 million in daily losses",
+                    "🔹 <strong>Stock market impact</strong>: decrease in company market value",
+                    "🔹 <strong>Businesses and influencers</strong>: billions lost in advertising and traffic"
+                ],
+                backButton: "🔙 Back to Home Page",
+                button: "🌍 Português"
+            }
+        };
+
+        let currentLang = "pt"; // Começa em Português
+
+        // Função para alternar idioma
+        document.getElementById("toggleLanguage").addEventListener("click", () => {
+            currentLang = currentLang === "pt" ? "en" : "pt";
+
+            document.getElementById("title").textContent = translations[currentLang].title;
+            document.getElementById("subtitle").textContent = translations[currentLang].subtitle;
+            document.getElementById("description").innerHTML = translations[currentLang].description;
+            document.getElementById("impact-list").innerHTML = translations[currentLang].impactList.map(item => `<li>${item}</li>`).join("");
+            document.getElementById("back-button").textContent = translations[currentLang].backButton;
+            document.getElementById("toggleLanguage").textContent = translations[currentLang].button;
+        });
+    </script>
+
+</body>
+</html>
